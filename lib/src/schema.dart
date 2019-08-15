@@ -72,6 +72,7 @@ class DbTable {
   /// Add a foreign key to a column
   void foreignKey(String name,
       {String reference,
+      String referenceId,
       bool nullable = false,
       bool unique = false,
       String defaultValue,
@@ -84,7 +85,7 @@ class DbTable {
     String fk;
     fk = "  FOREIGN KEY ($name)\n";
     reference ??= name;
-    fk += "  REFERENCES $reference(id)\n";
+    fk += "  REFERENCES $reference($referenceId)\n";
     fk += "  ON DELETE ";
     switch (onDelete) {
       case OnDelete.cascade:
