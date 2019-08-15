@@ -85,6 +85,7 @@ class DbTable {
     String fk;
     fk = "  FOREIGN KEY ($name)\n";
     reference ??= name;
+    referenceId ??= 'id';
     fk += "  REFERENCES $reference($referenceId)\n";
     fk += "  ON DELETE ";
     switch (onDelete) {
